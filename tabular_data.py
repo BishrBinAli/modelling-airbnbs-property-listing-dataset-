@@ -33,6 +33,14 @@ def clean_tabular_data(df):
     return df
 
 
+def load_airbnb(df, label):
+    numerical_columns = ['guests', 'beds', 'bathrooms', 'Price_Night', 'Cleanliness_rating', 'Accuracy_rating',
+                         'Communication_rating', 'Location_rating', 'Check-in_rating', 'Value_rating', 'amenities_count', 'bedrooms']
+    labels = df[label]
+    features = df[[column for column in numerical_columns if column != label]]
+    return (features, labels)
+
+
 # %%
 if __name__ == "__main__":
     # %%
